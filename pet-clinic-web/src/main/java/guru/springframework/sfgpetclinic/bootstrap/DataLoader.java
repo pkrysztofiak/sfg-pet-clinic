@@ -15,21 +15,21 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader() {
-        ownerService = new OwnerServiceMap();
-        vetService = new VetServiceMap();
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
     public void run(String... args) throws Exception {
         Owner michaelWeston = new Owner();
-        michaelWeston.setId(1l);
+        michaelWeston.setId(1L);
         michaelWeston.setFirstName("Michael");
         michaelWeston.setLastName("Weston");
         ownerService.save(michaelWeston);
 
         Owner fionaGlenanne = new Owner();
-        fionaGlenanne.setId(2l);
+        fionaGlenanne.setId(2L);
         fionaGlenanne.setFirstName("Fiona");
         fionaGlenanne.setLastName("Glenanne");
         ownerService.save(fionaGlenanne);
